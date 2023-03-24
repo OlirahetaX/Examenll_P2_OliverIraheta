@@ -4,6 +4,12 @@
  */
 package examenll_p2_oliveriraheta;
 
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+
 /**
  *
  * @author Oliver Iraheta
@@ -15,6 +21,9 @@ public class princi extends javax.swing.JFrame {
      */
     public princi() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        jp_list.setVisible(false);
+        jPanel3.setVisible(false);
     }
 
     /**
@@ -26,21 +35,251 @@ public class princi extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pm_q = new javax.swing.JPopupMenu();
+        mi_AgregarDepo = new javax.swing.JMenuItem();
+        pm_depo = new javax.swing.JPopupMenu();
+        mi_CrearTorneo = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        mi_guardar = new javax.swing.JMenuItem();
+        pm_torneo = new javax.swing.JPopupMenu();
+        mi_listar = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
+        mi_agregarEquipo = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        mi_Simu = new javax.swing.JMenuItem();
+        pm_CrearEquipo = new javax.swing.JPopupMenu();
+        mi_crearEqui = new javax.swing.JMenuItem();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
+        jPanel1 = new javax.swing.JPanel();
+        jp_list = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jPanel3 = new javax.swing.JPanel();
+        jProgressBar1 = new javax.swing.JProgressBar();
+
+        mi_AgregarDepo.setText("Crear Deporte");
+        mi_AgregarDepo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_AgregarDepoActionPerformed(evt);
+            }
+        });
+        pm_q.add(mi_AgregarDepo);
+
+        mi_CrearTorneo.setText("Crear Torneo");
+        mi_CrearTorneo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_CrearTorneoActionPerformed(evt);
+            }
+        });
+        pm_depo.add(mi_CrearTorneo);
+        pm_depo.add(jSeparator1);
+
+        mi_guardar.setBackground(new java.awt.Color(255, 204, 51));
+        mi_guardar.setText("Guardar Deporte");
+        pm_depo.add(mi_guardar);
+
+        mi_listar.setText("Listar Equipos");
+        mi_listar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_listarActionPerformed(evt);
+            }
+        });
+        pm_torneo.add(mi_listar);
+        pm_torneo.add(jSeparator3);
+
+        mi_agregarEquipo.setText("Agregar Equipo");
+        mi_agregarEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_agregarEquipoActionPerformed(evt);
+            }
+        });
+        pm_torneo.add(mi_agregarEquipo);
+        pm_torneo.add(jSeparator2);
+
+        mi_Simu.setText("Simular Partido");
+        mi_Simu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_SimuActionPerformed(evt);
+            }
+        });
+        pm_torneo.add(mi_Simu);
+
+        mi_crearEqui.setText("Crear Equipo");
+        mi_crearEqui.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_crearEquiActionPerformed(evt);
+            }
+        });
+        pm_CrearEquipo.add(mi_crearEqui);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Torneos");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Q1");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Q2");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Q4");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Q5");
+        treeNode1.add(treeNode2);
+        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jTree1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTree1MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTree1);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jList1.setModel(new DefaultListModel()
+        );
+        jScrollPane2.setViewportView(jList1);
+
+        javax.swing.GroupLayout jp_listLayout = new javax.swing.GroupLayout(jp_list);
+        jp_list.setLayout(jp_listLayout);
+        jp_listLayout.setHorizontalGroup(
+            jp_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_listLayout.createSequentialGroup()
+                .addGap(141, 141, 141)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(77, Short.MAX_VALUE))
+        );
+        jp_listLayout.setVerticalGroup(
+            jp_listLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_listLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jp_list, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 530));
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 538, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 528, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 530));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1)
+                        .addGap(6, 6, 6)))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
+        modelo = (DefaultTreeModel) jTree1.getModel();
+        raiz = (DefaultMutableTreeNode) modelo.getRoot();
+        int row = jTree1.getClosestRowForLocation(evt.getX(), evt.getY());
+        jTree1.setSelectionRow(row);
+        Object v1 = jTree1.getSelectionPath().getLastPathComponent();
+        nodoS = (DefaultMutableTreeNode) v1;
+        if (evt.isMetaDown()) {
+            if (nodoS.getUserObject().equals("Torneos")) {
+                pm_CrearEquipo.show(evt.getComponent(), evt.getX(), evt.getY());
+            } else if (nodoS.getUserObject() instanceof String) {
+                pm_q.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+
+            if (nodoS.getUserObject() instanceof Deporte deporte) {
+                deporteS = deporte;
+                pm_depo.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+            if (nodoS.getUserObject() instanceof Torneo torneo) {
+                torneoS = torneo;
+                pm_torneo.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_jTree1MouseClicked
+
+    private void mi_AgregarDepoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_AgregarDepoActionPerformed
+        Deporte depo = new Deporte(JOptionPane.showInputDialog("Ingrese Nombre"));
+
+        for (int i = 0; i < 4; i++) {
+            ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(new DefaultMutableTreeNode(depo));
+        }
+        modelo.reload();
+        jTree1.setModel(modelo);
+    }//GEN-LAST:event_mi_AgregarDepoActionPerformed
+
+    private void mi_crearEquiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_crearEquiActionPerformed
+        equipos.add(new Equipo(JOptionPane.showInputDialog("Nombre del Equipo")));
+    }//GEN-LAST:event_mi_crearEquiActionPerformed
+
+    private void mi_CrearTorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_CrearTorneoActionPerformed
+        Torneo o = new Torneo(JOptionPane.showInputDialog("Nombre del Torneo"), nodoS.getParent().toString());
+        deporteS.addTorneo(o);
+        nodoS.add(new DefaultMutableTreeNode(o));
+        modelo.reload();
+    }//GEN-LAST:event_mi_CrearTorneoActionPerformed
+
+    private void mi_agregarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_agregarEquipoActionPerformed
+        String e = "";
+        for (Equipo equi : equipos) {
+            e += equipos.indexOf(equi) + ") " + equi + "\n";
+        }
+        int index = Integer.parseInt(JOptionPane.showInputDialog("Ingrese equipo\n" + e));
+        if (!torneoS.getEquipos().contains(equipos.get(index))) {
+            torneoS.addEquipos(equipos.get(index));
+            JOptionPane.showMessageDialog(this, "Agregado Exitosamente");
+        }else{
+            JOptionPane.showMessageDialog(this, "ERROR");
+        }
+        modelo.reload();
+        
+    }//GEN-LAST:event_mi_agregarEquipoActionPerformed
+
+    private void mi_listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_listarActionPerformed
+        DefaultListModel modelo2 = (DefaultListModel) jList1.getModel();
+        modelo2.clear();
+        jp_list.setVisible(true);
+        jPanel3.setVisible(false);
+        for (Equipo equipo : torneoS.getEquipos()) {
+            modelo2.addElement(equipo);
+        }
+        jList1.setModel(modelo2);
+    }//GEN-LAST:event_mi_listarActionPerformed
+
+    private void mi_SimuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_SimuActionPerformed
+        jp_list.setVisible(false);
+        jPanel3.setVisible(true);
+    }//GEN-LAST:event_mi_SimuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +317,33 @@ public class princi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
+    private javax.swing.JTree jTree1;
+    private javax.swing.JPanel jp_list;
+    private javax.swing.JMenuItem mi_AgregarDepo;
+    private javax.swing.JMenuItem mi_CrearTorneo;
+    private javax.swing.JMenuItem mi_Simu;
+    private javax.swing.JMenuItem mi_agregarEquipo;
+    private javax.swing.JMenuItem mi_crearEqui;
+    private javax.swing.JMenuItem mi_guardar;
+    private javax.swing.JMenuItem mi_listar;
+    private javax.swing.JPopupMenu pm_CrearEquipo;
+    private javax.swing.JPopupMenu pm_depo;
+    private javax.swing.JPopupMenu pm_q;
+    private javax.swing.JPopupMenu pm_torneo;
     // End of variables declaration//GEN-END:variables
+    private DefaultMutableTreeNode nodoS;
+    private Deporte deporteS;
+    private Torneo torneoS;
+    private ArrayList<Equipo> equipos = new ArrayList<>();
+    DefaultTreeModel modelo;
+    DefaultMutableTreeNode raiz;
 }
