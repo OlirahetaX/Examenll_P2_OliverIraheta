@@ -2,10 +2,12 @@
 package examenll_p2_oliveriraheta;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Equipo implements Serializable{
     private String name;
     private int puntos;
+    private ArrayList<Partido>partidos = new ArrayList<>();
 
     public Equipo(String name) {
         this.name = name;
@@ -29,6 +31,18 @@ public class Equipo implements Serializable{
     public void addPuntos(int puntos){
         this.puntos+=puntos;
     }
+
+    public ArrayList<Partido> getPartidos() {
+        return partidos;
+    }
+
+    public void setPartidos(ArrayList<Partido> partidos) {
+        this.partidos = partidos;
+    }
+    public void addPartido(Partido p ){
+        this.partidos.add(p);
+    }
+    
 
     @Override
     public String toString() {

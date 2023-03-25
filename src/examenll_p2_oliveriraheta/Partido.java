@@ -5,12 +5,22 @@ import java.io.Serializable;
 
 
 public class Partido implements Serializable{
+    private Torneo t;
     private Equipo[] equipos = new Equipo[2];
     private Integer[] resultados = new Integer[2];
 
-    public Partido() {
+    public Partido(Torneo t) {
+        this.t=t;
     }
 
+    public Torneo getT() {
+        return t;
+    }
+
+    public void setT(Torneo t) {
+        this.t = t;
+    }
+    
     public Equipo[] getEquipos() {
         return equipos;
     }
